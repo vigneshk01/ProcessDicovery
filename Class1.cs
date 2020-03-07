@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace WinApplWatcher
+namespace ProcessDiscovery
 {
 
     public struct ValuePair
