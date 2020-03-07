@@ -10,7 +10,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace WinApplWatcher
+namespace ProcessDiscovery
 {    
     // Summary description for Form1.
     public class Form1 : System.Windows.Forms.Form

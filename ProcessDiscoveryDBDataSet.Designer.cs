@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace WinApplWatcher {
+namespace ProcessDiscovery {
     
     
     /// <summary>
@@ -24,7 +24,7 @@ namespace WinApplWatcher {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class ProcessDiscoveryDBDataSet : global::System.Data.DataSet {
         
-        private CapturedDataDataTable tableCapturedData;
+        private ProcessCapturedDataDataTable tableProcessCapturedData;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace WinApplWatcher {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["CapturedData"] != null)) {
-                    base.Tables.Add(new CapturedDataDataTable(ds.Tables["CapturedData"]));
+                if ((ds.Tables["ProcessCapturedData"] != null)) {
+                    base.Tables.Add(new ProcessCapturedDataDataTable(ds.Tables["ProcessCapturedData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace WinApplWatcher {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CapturedDataDataTable CapturedData {
+        public ProcessCapturedDataDataTable ProcessCapturedData {
             get {
-                return this.tableCapturedData;
+                return this.tableProcessCapturedData;
             }
         }
         
@@ -152,8 +152,8 @@ namespace WinApplWatcher {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["CapturedData"] != null)) {
-                    base.Tables.Add(new CapturedDataDataTable(ds.Tables["CapturedData"]));
+                if ((ds.Tables["ProcessCapturedData"] != null)) {
+                    base.Tables.Add(new ProcessCapturedDataDataTable(ds.Tables["ProcessCapturedData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace WinApplWatcher {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableCapturedData = ((CapturedDataDataTable)(base.Tables["CapturedData"]));
+            this.tableProcessCapturedData = ((ProcessCapturedDataDataTable)(base.Tables["ProcessCapturedData"]));
             if ((initTable == true)) {
-                if ((this.tableCapturedData != null)) {
-                    this.tableCapturedData.InitVars();
+                if ((this.tableProcessCapturedData != null)) {
+                    this.tableProcessCapturedData.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace WinApplWatcher {
             this.Namespace = "http://tempuri.org/ProcessDiscoveryDBDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableCapturedData = new CapturedDataDataTable();
-            base.Tables.Add(this.tableCapturedData);
+            this.tableProcessCapturedData = new ProcessCapturedDataDataTable();
+            base.Tables.Add(this.tableProcessCapturedData);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeCapturedData() {
+        private bool ShouldSerializeProcessCapturedData() {
             return false;
         }
         
@@ -270,22 +270,20 @@ namespace WinApplWatcher {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void CapturedDataRowChangeEventHandler(object sender, CapturedDataRowChangeEvent e);
+        public delegate void ProcessCapturedDataRowChangeEventHandler(object sender, ProcessCapturedDataRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CapturedDataDataTable : global::System.Data.TypedTableBase<CapturedDataRow> {
+        public partial class ProcessCapturedDataDataTable : global::System.Data.TypedTableBase<ProcessCapturedDataRow> {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnWindow_Title;
-            
             private global::System.Data.DataColumn columnProcess_Name;
             
-            private global::System.Data.DataColumn columnSequence_Number;
+            private global::System.Data.DataColumn columnSequence_Name;
             
             private global::System.Data.DataColumn columnApplication_Start_Time;
             
@@ -299,8 +297,8 @@ namespace WinApplWatcher {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CapturedDataDataTable() {
-                this.TableName = "CapturedData";
+            public ProcessCapturedDataDataTable() {
+                this.TableName = "ProcessCapturedData";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +306,7 @@ namespace WinApplWatcher {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal CapturedDataDataTable(global::System.Data.DataTable table) {
+            internal ProcessCapturedDataDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,7 +323,7 @@ namespace WinApplWatcher {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected CapturedDataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ProcessCapturedDataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -340,14 +338,6 @@ namespace WinApplWatcher {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Window_TitleColumn {
-                get {
-                    return this.columnWindow_Title;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn Process_NameColumn {
                 get {
                     return this.columnProcess_Name;
@@ -356,9 +346,9 @@ namespace WinApplWatcher {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Sequence_NumberColumn {
+            public global::System.Data.DataColumn Sequence_NameColumn {
                 get {
-                    return this.columnSequence_Number;
+                    return this.columnSequence_Name;
                 }
             }
             
@@ -413,53 +403,52 @@ namespace WinApplWatcher {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CapturedDataRow this[int index] {
+            public ProcessCapturedDataRow this[int index] {
                 get {
-                    return ((CapturedDataRow)(this.Rows[index]));
+                    return ((ProcessCapturedDataRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CapturedDataRowChangeEventHandler CapturedDataRowChanging;
+            public event ProcessCapturedDataRowChangeEventHandler ProcessCapturedDataRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CapturedDataRowChangeEventHandler CapturedDataRowChanged;
+            public event ProcessCapturedDataRowChangeEventHandler ProcessCapturedDataRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CapturedDataRowChangeEventHandler CapturedDataRowDeleting;
+            public event ProcessCapturedDataRowChangeEventHandler ProcessCapturedDataRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CapturedDataRowChangeEventHandler CapturedDataRowDeleted;
+            public event ProcessCapturedDataRowChangeEventHandler ProcessCapturedDataRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddCapturedDataRow(CapturedDataRow row) {
+            public void AddProcessCapturedDataRow(ProcessCapturedDataRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CapturedDataRow AddCapturedDataRow(string Window_Title, string Process_Name, int Sequence_Number, string Application_Start_Time, string Application_Stop_Time, string Sequence_Start_Time, string Sequence_Stop_Time, string Total_Active_Time) {
-                CapturedDataRow rowCapturedDataRow = ((CapturedDataRow)(this.NewRow()));
+            public ProcessCapturedDataRow AddProcessCapturedDataRow(int ID, string Process_Name, int Sequence_Name, string Application_Start_Time, string Application_Stop_Time, string Sequence_Start_Time, string Sequence_Stop_Time, string Total_Active_Time) {
+                ProcessCapturedDataRow rowProcessCapturedDataRow = ((ProcessCapturedDataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        Window_Title,
+                        ID,
                         Process_Name,
-                        Sequence_Number,
+                        Sequence_Name,
                         Application_Start_Time,
                         Application_Stop_Time,
                         Sequence_Start_Time,
                         Sequence_Stop_Time,
                         Total_Active_Time};
-                rowCapturedDataRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCapturedDataRow);
-                return rowCapturedDataRow;
+                rowProcessCapturedDataRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowProcessCapturedDataRow);
+                return rowProcessCapturedDataRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                CapturedDataDataTable cln = ((CapturedDataDataTable)(base.Clone()));
+                ProcessCapturedDataDataTable cln = ((ProcessCapturedDataDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -467,16 +456,15 @@ namespace WinApplWatcher {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new CapturedDataDataTable();
+                return new ProcessCapturedDataDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnWindow_Title = base.Columns["Window Title"];
                 this.columnProcess_Name = base.Columns["Process Name"];
-                this.columnSequence_Number = base.Columns["Sequence Number"];
+                this.columnSequence_Name = base.Columns["Sequence Name"];
                 this.columnApplication_Start_Time = base.Columns["Application Start Time"];
                 this.columnApplication_Stop_Time = base.Columns["Application Stop Time"];
                 this.columnSequence_Start_Time = base.Columns["Sequence Start Time"];
@@ -489,12 +477,10 @@ namespace WinApplWatcher {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnWindow_Title = new global::System.Data.DataColumn("Window Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWindow_Title);
                 this.columnProcess_Name = new global::System.Data.DataColumn("Process Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProcess_Name);
-                this.columnSequence_Number = new global::System.Data.DataColumn("Sequence Number", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSequence_Number);
+                this.columnSequence_Name = new global::System.Data.DataColumn("Sequence Name", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSequence_Name);
                 this.columnApplication_Start_Time = new global::System.Data.DataColumn("Application Start Time", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnApplication_Start_Time);
                 this.columnApplication_Stop_Time = new global::System.Data.DataColumn("Application Stop Time", typeof(string), null, global::System.Data.MappingType.Element);
@@ -505,15 +491,10 @@ namespace WinApplWatcher {
                 base.Columns.Add(this.columnSequence_Stop_Time);
                 this.columnTotal_Active_Time = new global::System.Data.DataColumn("Total Active Time", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_Active_Time);
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnWindow_Title.MaxLength = 2147483647;
                 this.columnProcess_Name.AllowDBNull = false;
                 this.columnProcess_Name.MaxLength = 2147483647;
-                this.columnSequence_Number.AllowDBNull = false;
+                this.columnSequence_Name.AllowDBNull = false;
                 this.columnApplication_Start_Time.AllowDBNull = false;
                 this.columnApplication_Start_Time.MaxLength = 50;
                 this.columnApplication_Stop_Time.AllowDBNull = false;
@@ -528,28 +509,28 @@ namespace WinApplWatcher {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CapturedDataRow NewCapturedDataRow() {
-                return ((CapturedDataRow)(this.NewRow()));
+            public ProcessCapturedDataRow NewProcessCapturedDataRow() {
+                return ((ProcessCapturedDataRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CapturedDataRow(builder);
+                return new ProcessCapturedDataRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(CapturedDataRow);
+                return typeof(ProcessCapturedDataRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.CapturedDataRowChanged != null)) {
-                    this.CapturedDataRowChanged(this, new CapturedDataRowChangeEvent(((CapturedDataRow)(e.Row)), e.Action));
+                if ((this.ProcessCapturedDataRowChanged != null)) {
+                    this.ProcessCapturedDataRowChanged(this, new ProcessCapturedDataRowChangeEvent(((ProcessCapturedDataRow)(e.Row)), e.Action));
                 }
             }
             
@@ -557,8 +538,8 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.CapturedDataRowChanging != null)) {
-                    this.CapturedDataRowChanging(this, new CapturedDataRowChangeEvent(((CapturedDataRow)(e.Row)), e.Action));
+                if ((this.ProcessCapturedDataRowChanging != null)) {
+                    this.ProcessCapturedDataRowChanging(this, new ProcessCapturedDataRowChangeEvent(((ProcessCapturedDataRow)(e.Row)), e.Action));
                 }
             }
             
@@ -566,8 +547,8 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.CapturedDataRowDeleted != null)) {
-                    this.CapturedDataRowDeleted(this, new CapturedDataRowChangeEvent(((CapturedDataRow)(e.Row)), e.Action));
+                if ((this.ProcessCapturedDataRowDeleted != null)) {
+                    this.ProcessCapturedDataRowDeleted(this, new ProcessCapturedDataRowChangeEvent(((ProcessCapturedDataRow)(e.Row)), e.Action));
                 }
             }
             
@@ -575,14 +556,14 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.CapturedDataRowDeleting != null)) {
-                    this.CapturedDataRowDeleting(this, new CapturedDataRowChangeEvent(((CapturedDataRow)(e.Row)), e.Action));
+                if ((this.ProcessCapturedDataRowDeleting != null)) {
+                    this.ProcessCapturedDataRowDeleting(this, new ProcessCapturedDataRowChangeEvent(((ProcessCapturedDataRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveCapturedDataRow(CapturedDataRow row) {
+            public void RemoveProcessCapturedDataRow(ProcessCapturedDataRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -609,7 +590,7 @@ namespace WinApplWatcher {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CapturedDataDataTable";
+                attribute2.FixedValue = "ProcessCapturedDataDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -653,41 +634,25 @@ namespace WinApplWatcher {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class CapturedDataRow : global::System.Data.DataRow {
+        public partial class ProcessCapturedDataRow : global::System.Data.DataRow {
             
-            private CapturedDataDataTable tableCapturedData;
+            private ProcessCapturedDataDataTable tableProcessCapturedData;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal CapturedDataRow(global::System.Data.DataRowBuilder rb) : 
+            internal ProcessCapturedDataRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableCapturedData = ((CapturedDataDataTable)(this.Table));
+                this.tableProcessCapturedData = ((ProcessCapturedDataDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID {
                 get {
-                    return ((int)(this[this.tableCapturedData.IDColumn]));
+                    return ((int)(this[this.tableProcessCapturedData.IDColumn]));
                 }
                 set {
-                    this[this.tableCapturedData.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Window_Title {
-                get {
-                    try {
-                        return ((string)(this[this.tableCapturedData.Window_TitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Window Title\' in table \'CapturedData\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCapturedData.Window_TitleColumn] = value;
+                    this[this.tableProcessCapturedData.IDColumn] = value;
                 }
             }
             
@@ -695,21 +660,21 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Process_Name {
                 get {
-                    return ((string)(this[this.tableCapturedData.Process_NameColumn]));
+                    return ((string)(this[this.tableProcessCapturedData.Process_NameColumn]));
                 }
                 set {
-                    this[this.tableCapturedData.Process_NameColumn] = value;
+                    this[this.tableProcessCapturedData.Process_NameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Sequence_Number {
+            public int Sequence_Name {
                 get {
-                    return ((int)(this[this.tableCapturedData.Sequence_NumberColumn]));
+                    return ((int)(this[this.tableProcessCapturedData.Sequence_NameColumn]));
                 }
                 set {
-                    this[this.tableCapturedData.Sequence_NumberColumn] = value;
+                    this[this.tableProcessCapturedData.Sequence_NameColumn] = value;
                 }
             }
             
@@ -717,10 +682,10 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Application_Start_Time {
                 get {
-                    return ((string)(this[this.tableCapturedData.Application_Start_TimeColumn]));
+                    return ((string)(this[this.tableProcessCapturedData.Application_Start_TimeColumn]));
                 }
                 set {
-                    this[this.tableCapturedData.Application_Start_TimeColumn] = value;
+                    this[this.tableProcessCapturedData.Application_Start_TimeColumn] = value;
                 }
             }
             
@@ -728,10 +693,10 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Application_Stop_Time {
                 get {
-                    return ((string)(this[this.tableCapturedData.Application_Stop_TimeColumn]));
+                    return ((string)(this[this.tableProcessCapturedData.Application_Stop_TimeColumn]));
                 }
                 set {
-                    this[this.tableCapturedData.Application_Stop_TimeColumn] = value;
+                    this[this.tableProcessCapturedData.Application_Stop_TimeColumn] = value;
                 }
             }
             
@@ -739,10 +704,10 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Sequence_Start_Time {
                 get {
-                    return ((string)(this[this.tableCapturedData.Sequence_Start_TimeColumn]));
+                    return ((string)(this[this.tableProcessCapturedData.Sequence_Start_TimeColumn]));
                 }
                 set {
-                    this[this.tableCapturedData.Sequence_Start_TimeColumn] = value;
+                    this[this.tableProcessCapturedData.Sequence_Start_TimeColumn] = value;
                 }
             }
             
@@ -750,10 +715,10 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Sequence_Stop_Time {
                 get {
-                    return ((string)(this[this.tableCapturedData.Sequence_Stop_TimeColumn]));
+                    return ((string)(this[this.tableProcessCapturedData.Sequence_Stop_TimeColumn]));
                 }
                 set {
-                    this[this.tableCapturedData.Sequence_Stop_TimeColumn] = value;
+                    this[this.tableProcessCapturedData.Sequence_Stop_TimeColumn] = value;
                 }
             }
             
@@ -761,23 +726,11 @@ namespace WinApplWatcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Total_Active_Time {
                 get {
-                    return ((string)(this[this.tableCapturedData.Total_Active_TimeColumn]));
+                    return ((string)(this[this.tableProcessCapturedData.Total_Active_TimeColumn]));
                 }
                 set {
-                    this[this.tableCapturedData.Total_Active_TimeColumn] = value;
+                    this[this.tableProcessCapturedData.Total_Active_TimeColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsWindow_TitleNull() {
-                return this.IsNull(this.tableCapturedData.Window_TitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetWindow_TitleNull() {
-                this[this.tableCapturedData.Window_TitleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -785,22 +738,22 @@ namespace WinApplWatcher {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class CapturedDataRowChangeEvent : global::System.EventArgs {
+        public class ProcessCapturedDataRowChangeEvent : global::System.EventArgs {
             
-            private CapturedDataRow eventRow;
+            private ProcessCapturedDataRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CapturedDataRowChangeEvent(CapturedDataRow row, global::System.Data.DataRowAction action) {
+            public ProcessCapturedDataRowChangeEvent(ProcessCapturedDataRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CapturedDataRow Row {
+            public ProcessCapturedDataRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -816,7 +769,7 @@ namespace WinApplWatcher {
         }
     }
 }
-namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
+namespace ProcessDiscovery.ProcessDiscoveryDBDataSetTableAdapters {
     
     
     /// <summary>
@@ -828,7 +781,7 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class CapturedDataTableAdapter : global::System.ComponentModel.Component {
+    public partial class ProcessCapturedDataTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -842,7 +795,7 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public CapturedDataTableAdapter() {
+        public ProcessCapturedDataTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -939,11 +892,10 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "CapturedData";
+            tableMapping.DataSetTable = "ProcessCapturedData";
             tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("Window Title", "Window Title");
             tableMapping.ColumnMappings.Add("Process Name", "Process Name");
-            tableMapping.ColumnMappings.Add("Sequence Number", "Sequence Number");
+            tableMapping.ColumnMappings.Add("Sequence Name", "Sequence Name");
             tableMapping.ColumnMappings.Add("Application Start Time", "Application Start Time");
             tableMapping.ColumnMappings.Add("Application Stop Time", "Application Stop Time");
             tableMapping.ColumnMappings.Add("Sequence Start Time", "Sequence Start Time");
@@ -952,11 +904,11 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CapturedData] ([Window Title], [Process Name], [Sequence Number], [Application Start Time], [Application Stop Time], [Sequence Start Time], [Sequence Stop Time], [Total Active Time]) VALUES (@Window_Title, @Process_Name, @Sequence_Number, @Application_Start_Time, @Application_Stop_Time, @Sequence_Start_Time, @Sequence_Stop_Time, @Total_Active_Time)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ProcessCapturedData] ([ID], [Process Name], [Sequence Name], [Application Start Time], [Application Stop Time], [Sequence Start Time], [Sequence Stop Time], [Total Active Time]) VALUES (@ID, @Process_Name, @Sequence_Name, @Application_Start_Time, @Application_Stop_Time, @Sequence_Start_Time, @Sequence_Stop_Time, @Total_Active_Time)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Window_Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Window Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Process_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Process Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sequence_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sequence Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sequence_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sequence Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Application_Start_Time", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Application Start Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Application_Stop_Time", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Application Stop Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sequence_Start_Time", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sequence Start Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -968,7 +920,7 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WinApplWatcher.Properties.Settings.Default.ProcessDiscoveryDBConnectionString;
+            this._connection.ConnectionString = global::ProcessDiscovery.Properties.Settings.Default.ProcessDiscoveryDBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -977,9 +929,9 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, [Window Title], [Process Name], [Sequence Number], [Application Start " +
-                "Time], [Application Stop Time], [Sequence Start Time], [Sequence Stop Time], [To" +
-                "tal Active Time] FROM dbo.CapturedData";
+            this._commandCollection[0].CommandText = "SELECT ID, [Process Name], [Sequence Name], [Application Start Time], [Applicatio" +
+                "n Stop Time], [Sequence Start Time], [Sequence Stop Time], [Total Active Time] F" +
+                "ROM dbo.ProcessCapturedData";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -987,7 +939,7 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ProcessDiscoveryDBDataSet.CapturedDataDataTable dataTable) {
+        public virtual int Fill(ProcessDiscoveryDBDataSet.ProcessCapturedDataDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1000,9 +952,9 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ProcessDiscoveryDBDataSet.CapturedDataDataTable GetData() {
+        public virtual ProcessDiscoveryDBDataSet.ProcessCapturedDataDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ProcessDiscoveryDBDataSet.CapturedDataDataTable dataTable = new ProcessDiscoveryDBDataSet.CapturedDataDataTable();
+            ProcessDiscoveryDBDataSet.ProcessCapturedDataDataTable dataTable = new ProcessDiscoveryDBDataSet.ProcessCapturedDataDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1010,7 +962,7 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ProcessDiscoveryDBDataSet.CapturedDataDataTable dataTable) {
+        public virtual int Update(ProcessDiscoveryDBDataSet.ProcessCapturedDataDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1018,7 +970,7 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(ProcessDiscoveryDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "CapturedData");
+            return this.Adapter.Update(dataSet, "ProcessCapturedData");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1040,20 +992,15 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Window_Title, string Process_Name, int Sequence_Number, string Application_Start_Time, string Application_Stop_Time, string Sequence_Start_Time, string Sequence_Stop_Time, string Total_Active_Time) {
-            if ((Window_Title == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Window_Title));
-            }
+        public virtual int Insert(int ID, string Process_Name, int Sequence_Name, string Application_Start_Time, string Application_Stop_Time, string Sequence_Start_Time, string Sequence_Stop_Time, string Total_Active_Time) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
             if ((Process_Name == null)) {
                 throw new global::System.ArgumentNullException("Process_Name");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Process_Name));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Sequence_Number));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Sequence_Name));
             if ((Application_Start_Time == null)) {
                 throw new global::System.ArgumentNullException("Application_Start_Time");
             }
@@ -1113,7 +1060,7 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private CapturedDataTableAdapter _capturedDataTableAdapter;
+        private ProcessCapturedDataTableAdapter _processCapturedDataTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1135,12 +1082,12 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public CapturedDataTableAdapter CapturedDataTableAdapter {
+        public ProcessCapturedDataTableAdapter ProcessCapturedDataTableAdapter {
             get {
-                return this._capturedDataTableAdapter;
+                return this._processCapturedDataTableAdapter;
             }
             set {
-                this._capturedDataTableAdapter = value;
+                this._processCapturedDataTableAdapter = value;
             }
         }
         
@@ -1163,9 +1110,9 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._capturedDataTableAdapter != null) 
-                            && (this._capturedDataTableAdapter.Connection != null))) {
-                    return this._capturedDataTableAdapter.Connection;
+                if (((this._processCapturedDataTableAdapter != null) 
+                            && (this._processCapturedDataTableAdapter.Connection != null))) {
+                    return this._processCapturedDataTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1180,7 +1127,7 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._capturedDataTableAdapter != null)) {
+                if ((this._processCapturedDataTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1194,12 +1141,12 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(ProcessDiscoveryDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._capturedDataTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CapturedData.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._processCapturedDataTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ProcessCapturedData.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._capturedDataTableAdapter.Update(updatedRows));
+                    result = (result + this._processCapturedDataTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1213,11 +1160,11 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(ProcessDiscoveryDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._capturedDataTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CapturedData.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._processCapturedDataTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ProcessCapturedData.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._capturedDataTableAdapter.Update(addedRows));
+                    result = (result + this._processCapturedDataTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1231,11 +1178,11 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(ProcessDiscoveryDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._capturedDataTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CapturedData.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._processCapturedDataTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ProcessCapturedData.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._capturedDataTableAdapter.Update(deletedRows));
+                    result = (result + this._processCapturedDataTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1278,8 +1225,8 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._capturedDataTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._capturedDataTableAdapter.Connection) == false))) {
+            if (((this._processCapturedDataTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._processCapturedDataTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1315,13 +1262,13 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._capturedDataTableAdapter != null)) {
-                    revertConnections.Add(this._capturedDataTableAdapter, this._capturedDataTableAdapter.Connection);
-                    this._capturedDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._capturedDataTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._capturedDataTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._capturedDataTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._capturedDataTableAdapter.Adapter);
+                if ((this._processCapturedDataTableAdapter != null)) {
+                    revertConnections.Add(this._processCapturedDataTableAdapter, this._processCapturedDataTableAdapter.Connection);
+                    this._processCapturedDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._processCapturedDataTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._processCapturedDataTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._processCapturedDataTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._processCapturedDataTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1382,9 +1329,9 @@ namespace WinApplWatcher.ProcessDiscoveryDBDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._capturedDataTableAdapter != null)) {
-                    this._capturedDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._capturedDataTableAdapter]));
-                    this._capturedDataTableAdapter.Transaction = null;
+                if ((this._processCapturedDataTableAdapter != null)) {
+                    this._processCapturedDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._processCapturedDataTableAdapter]));
+                    this._processCapturedDataTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

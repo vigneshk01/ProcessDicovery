@@ -1,6 +1,6 @@
 using System;
 
-namespace WinApplWatcher
+namespace ProcessDiscovery
 {
     /// <summary>
     /// Summary description for APIFuncs.
