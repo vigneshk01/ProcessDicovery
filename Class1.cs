@@ -3,65 +3,127 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Text;
+using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ProcessDiscovery
 {
 
-    public struct ValuePair
-    {
-        public string Value1;
-        public string Value2;
-    }
-
     public class class1
     {
-        private static int i;
-        private static void Main2()
+        delegate void WinEventDelegate(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime);
+
+        [DllImport("user32.dll")]
+        static extern bool UnhookWinEvent(IntPtr hWinEventHook);
+
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
+        public static extern IntPtr GetParent(IntPtr hWnd);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern int GetWindowTextLength(IntPtr hWnd);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
+
+        [DllImport("user32.dll")]
+        static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
+
+        [DllImport("user32.dll")]
+        static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr hmodWinEventProc, WinEventDelegate lpfnWinEventProc, uint idProcess, uint idThread, uint dwFlags);
+
+        private static uint processID = 0;
+        private const uint WINEVENT_OUTOFCONTEXT = 0;
+        private const uint EVENT_SYSTEM_FOREGROUND = 3;
+        private const uint EVENT_SYSTEM_MINIMIZEEND = 23;
+        //private static readonly string dbConStr = ConfigurationManager.ConnectionStrings["ProcessDiscoveryDB"].ConnectionString;
+        static WinEventDelegate procDelegate = new WinEventDelegate(WinEventProc);
+        private static Dictionary<string, Tuple<double, string, string, int>> applhashdict;
+        private static bool isNewAppl;
+        private static string prevValue = null;
+
+        private static string GetActiveWindowTitle()
         {
-            /*Dictionary<string, Tuple<double, double>> applhashdict = new Dictionary<string, Tuple<double, double>>();
-            applhashdict.Add("1", new Tuple<double, double>(0,0));
-            applhashdict.Add("2", new Tuple<double, double>(22,22));
-            //applhashdict.Add("2", new Tuple<double, double>(22,22));
-            /*foreach (var item in applhashdict)
+            try
             {
-                Debug.WriteLine(item.Value.Item1);
+
+                IntPtr handle = GetForegroundWindow();
+                int nChars = GetWindowTextLength(handle) + 1;
+                StringBuilder Buff = new StringBuilder(nChars);
+
+                if (GetWindowText(handle, Buff, nChars) > 0)
+                {
+                    GetWindowThreadProcessId(handle, out processID);
+                    Process processName = Process.GetProcessById(Convert.ToInt32(processID));
+                    return Buff.ToString();
+
+                }
+                else
+                {
+                    IntPtr parentHandle = GetParent(handle);
+                    int nPChars = GetWindowTextLength(parentHandle) + 1;
+                    StringBuilder PBuff = new StringBuilder(nChars);
+                    if (GetWindowText(handle, PBuff, nPChars) > 0)
+
+                    {
+                        GetWindowThreadProcessId(handle, out processID);
+                        Process processName = Process.GetProcessById(Convert.ToInt32(processID));
+                        return PBuff.ToString();
+                    }
+                    else
+                    {
+                        GetWindowThreadProcessId(handle, out processID);
+                        Process processName = Process.GetProcessById(Convert.ToInt32(processID));
+                        return "PROCESS NAME" + processName.ProcessName;
+                    }
+                }
             }
-            int i = 100;
-            //Debug.WriteLine(i);
-             i = 200;
-            //Debug.WriteLine(i);
-            IDictionaryEnumerator eb = applhashdict.GetEnumerator();
-            while (eb.MoveNext())
+            catch (Exception e)
             {
-                string user = eb.Value.ToString().Split(',')[0];
-                //Debug.WriteLine(user);
-                //Debug.WriteLine(applhashdict[eb.Key.ToString()].Item1);
-                double prevseconds = Convert.ToDouble(applhashdict[eb.Key.ToString()].Item1.ToString());
-               // Debug.WriteLine(prevseconds);
-            }*/
+                Console.WriteLine(e.ToString());
+                return "Null";
+            }
+        }
 
-            Dictionary<Tuple<int, string>, Tuple<double, string, string>> applhashdict2 = new Dictionary<Tuple<int, string>, Tuple<double, string, string>>();
-            applhashdict2.Add(new Tuple<int, string>(1,"2"), new Tuple<double, string, string>(0,"0","0"));
-            applhashdict2.Add(new Tuple<int, string>(2,"t"), new Tuple<double, string, string>(22,"22","22"));
-            IDictionaryEnumerator eb = applhashdict2.GetEnumerator();
-            while (eb.MoveNext())
+        private static void WinEventProc(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
+        {
+            string ActiveWindowName = GetActiveWindowTitle();
+            if (prevValue != ActiveWindowName)
             {
-                string d = applhashdict2[new Tuple<int, string>(int.Parse(eb.Key.ToString().Remove(0, 1).Split(',')[0].Trim()),eb.Key.ToString().Remove(eb.Key.ToString().Length-1, 1).Split(',')[1].Trim())].Item1.ToString().Trim();
-                //string f = eb.Key.ToString().Remove(eb.Key.ToString().Length-1, 1).Split(',')[1].Trim();
+                string activatedTime = DateTime.Now.ToString();
+                Console.WriteLine("Foreground changed to " + "---" + ActiveWindowName + " ---- " + activatedTime + " ----- " + processID);
+                if (applhashdict.ContainsKey(ActiveWindowName))
+                {
+                    applhashdict.Remove(ActiveWindowName);
+                }
+                applhashdict.Add(ActiveWindowName, new Tuple<double, string, string, int>(2, activatedTime, activatedTime, 1));
+                prevValue = ActiveWindowName;
+                isNewAppl = true;
             }
+        }
 
-
-                /*Dictionary<int, List<ValuePair>> dictionary = new Dictionary<int, List<ValuePair>>();
-                List<ValuePair> list = new List<ValuePair>();
-                list.Add(new ValuePair { Value1 = "1", Value2 = "2" });
-                dictionary.Add(1, list);
-                dictionary.Add(2, list);
-
-
-                #pragma warning disable CS1001 // Identifier expected
-                //Debug.WriteLine(string.Join(", ", dictionary.Select(pair => $"{pair.Key} => {pair.Value}")));
-                #pragma warning restore CS1001 // Identifier expected
-                */
+        [STAThread]
+        private static void Main()
+        {
+            try
+            {
+                applhashdict = new Dictionary<string, Tuple<double, string, string, int>>();
+                //Debug.WriteLine(GetActiveWindowTitle()); 
+                IntPtr m_hhook = SetWinEventHook(EVENT_SYSTEM_FOREGROUND, EVENT_SYSTEM_MINIMIZEEND, IntPtr.Zero, procDelegate, 0, 0, WINEVENT_OUTOFCONTEXT);
+                MessageBox.Show("Tracking focus, close message box to exit.");
+                UnhookWinEvent(m_hhook);
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }                       
+        }
     }
 }
