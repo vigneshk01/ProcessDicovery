@@ -46,7 +46,7 @@ namespace ProcessDiscovery
         //private static readonly string dbConStr = ConfigurationManager.ConnectionStrings["ProcessDiscoveryDB"].ConnectionString;
         static WinEventDelegate procDelegate = new WinEventDelegate(WinEventProc);
         private static Dictionary<string, Tuple<double, string, string, int>> applhashdict;
-        private static bool isNewAppl;
+        //private static bool isNewAppl;
         private static string prevValue = null;
 
         private static string GetActiveWindowTitle()
@@ -105,7 +105,7 @@ namespace ProcessDiscovery
                 }
                 applhashdict.Add(ActiveWindowName, new Tuple<double, string, string, int>(2, activatedTime, activatedTime, 1));
                 prevValue = ActiveWindowName;
-                isNewAppl = true;
+                //isNewAppl = true;
             }
         }
 

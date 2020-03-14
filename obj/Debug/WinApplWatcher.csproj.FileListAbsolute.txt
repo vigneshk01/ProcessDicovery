@@ -1,8 +1,0 @@
-C:\Users\e5582650\source\repos\WinApplWatcher\bin\Debug\WinApplWatcher.exe
-C:\Users\e5582650\source\repos\WinApplWatcher\bin\Debug\WinApplWatcher.pdb
-C:\Users\e5582650\source\repos\WinApplWatcher\obj\Debug\WinApplWatcher.Form1.resources
-C:\Users\e5582650\source\repos\WinApplWatcher\obj\Debug\WinApplWatcher.csproj.GenerateResource.cache
-C:\Users\e5582650\source\repos\WinApplWatcher\obj\Debug\WinApplWatcher.exe
-C:\Users\e5582650\source\repos\WinApplWatcher\obj\Debug\WinApplWatcher.pdb
-C:\Users\e5582650\source\repos\WinApplWatcher\obj\Debug\WinApplWatcher.csprojAssemblyReference.cache
-C:\Users\e5582650\source\repos\WinApplWatcher\bin\Debug\WinApplWatcher.exe.config

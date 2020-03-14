@@ -22,16 +22,5 @@ namespace ProcessDiscovery.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BLR1-LTG3WLQV2\\SQLEXPRESS;Initial Catalog=ProcessDiscoveryDB;Persist " +
-            "Security Info=True;User ID=ProcessDiscovery;Password=Password@123")]
-        public string ProcessDiscoveryDBConnectionString {
-            get {
-                return ((string)(this["ProcessDiscoveryDBConnectionString"]));
-            }
-        }
     }
 }

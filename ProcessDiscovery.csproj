@@ -2,8 +2,8 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>7.10.3077</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
+    <ProductVersion>1.0.0.3</ProductVersion>
+    <SchemaVersion>1.0</SchemaVersion>
     <ProjectGuid>{EA1CD2EF-6032-4BD7-89AD-3B530E3DF5A4}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -106,15 +106,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Class1.cs" />
-    <Compile Include="ProcessDiscoveryDBDataSet.cs">
-      <DependentUpon>ProcessDiscoveryDBDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ProcessDiscoveryDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProcessDiscoveryDBDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Class1.cs" />    
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -122,18 +114,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="ProcessDiscoveryDBDataSet.xsc">
-      <DependentUpon>ProcessDiscoveryDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ProcessDiscoveryDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ProcessDiscoveryDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ProcessDiscoveryDBDataSet.xss">
-      <DependentUpon>ProcessDiscoveryDBDataSet.xsd</DependentUpon>
-    </None>
+    <None Include="app.config" />    
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
